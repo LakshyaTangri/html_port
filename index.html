@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Lakshya Tangri - AI Product Manager | Strategic Problem-Solver</title>
+    <meta name="description" content="Strategic Problem-Solver at the Intersection of AI and Enterprise Transformation. Product Head with 5+ years of experience architecting AI-powered solutions for complex organizational challenges." />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace']
+            },
+            colors: {
+              border: "hsl(var(--border))",
+              input: "hsl(var(--input))",
+              ring: "hsl(var(--ring))",
+              background: "hsl(var(--background))",
+              foreground: "hsl(var(--foreground))",
+              primary: {
+                DEFAULT: "hsl(var(--primary))",
+                foreground: "hsl(var(--primary-foreground))",
+              },
+              secondary: {
+                DEFAULT: "hsl(var(--secondary))",
+                foreground: "hsl(var(--secondary-foreground))",
+              },
+              destructive: {
+                DEFAULT: "hsl(var(--destructive))",
+                foreground: "hsl(var(--destructive-foreground))",
+              },
+              muted: {
+                DEFAULT: "hsl(var(--muted))",
+                foreground: "hsl(var(--muted-foreground))",
+              },
+              accent: {
+                DEFAULT: "hsl(var(--accent))",
+                foreground: "hsl(var(--accent-foreground))",
+              },
+              popover: {
+                DEFAULT: "hsl(var(--popover))",
+                foreground: "hsl(var(--popover-foreground))",
+              },
+              card: {
+                DEFAULT: "hsl(var(--card))",
+                foreground: "hsl(var(--card-foreground))",
+              },
+            },
+            borderRadius: {
+              lg: "var(--radius)",
+              md: "calc(var(--radius) - 2px)",
+              sm: "calc(var(--radius) - 4px)",
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 222 84% 5%;
+        --muted: 210 40% 98%;
+        --muted-foreground: 215 16% 47%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 84% 5%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 84% 5%;
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --primary: 238 79% 58%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 210 40% 96%;
+        --secondary-foreground: 222 84% 5%;
+        --accent: 210 40% 96%;
+        --accent-foreground: 222 84% 5%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 238 79% 58%;
+        --radius: 0.75rem;
+      }
+
+      .dark {
+        --background: 222 84% 5%;
+        --foreground: 210 40% 98%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 16% 47%;
+        --popover: 222 84% 5%;
+        --popover-foreground: 210 40% 98%;
+        --card: 222 84% 5%;
+        --card-foreground: 210 40% 98%;
+        --border: 217 33% 17%;
+        --input: 217 33% 17%;
+        --primary: 238 79% 58%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 217 33% 17%;
+        --secondary-foreground: 210 40% 98%;
+        --accent: 217 33% 17%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 72% 51%;
+        --destructive-foreground: 210 40% 98%;
+        --ring: 238 79% 58%;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, hsl(var(--primary)), #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .section-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .dark-mode-transition {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, hsl(var(--primary)), #06b6d4);
+        z-index: 9999;
+        transition: width 0.1s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .animate-slide-up {
+        animation: slideUp 0.6s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-foreground antialiased dark-mode-transition">
+    <div id="root">
+      <!-- Navigation -->
+      <nav class="fixed top-0 w-full bg-background/90 backdrop-blur-sm z-50 border-b border-border dark-mode-transition">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+          <div class="flex justify-between items-center">
+            <div class="font-bold text-xl gradient-text">Lakshya Tangri</div>
+            <div class="flex items-center space-x-6">
+              <div class="hidden md:flex space-x-6">
+                <a href="#introduction" class="hover:text-primary transition-colors text-sm font-medium">Introduction</a>
+                <a href="#philosophy" class="hover:text-primary transition-colors text-sm font-medium">Philosophy</a>
+                <a href="#competencies" class="hover:text-primary transition-colors text-sm font-medium">Skills</a>
+                <a href="#case-studies" class="hover:text-primary transition-colors text-sm font-medium">Case Studies</a>
+                <a href="#process" class="hover:text-primary transition-colors text-sm font-medium">Process</a>
+                <a href="#contact" class="hover:text-primary transition-colors text-sm font-medium">Contact</a>
+              </div>
+              <button 
+                id="theme-toggle"
+                class="h-9 w-9 rounded-lg hover:bg-accent flex items-center justify-center"
+              >
+                <i id="theme-icon" class="fas fa-moon h-4 w-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="introduction" class="pt-24 pb-16 section-reveal">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                  Strategic Problem-Solver at the
+                  <span class="gradient-text">Intersection of AI</span>
+                  and Enterprise Transformation
+                </h1>
+                <p class="text-xl text-muted-foreground leading-relaxed">
+                  Product Head with 5+ years of experience diagnosing complex organizational challenges and architecting AI-powered solutions that bridge technical possibility with business reality.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <div class="bg-gradient-to-r from-primary to-blue-500 text-white px-6 py-3 rounded-full text-sm font-medium">
+                  <i class="fas fa-map-marker-alt mr-2"></i>London, UK
+                </div>
+                <div class="bg-muted px-6 py-3 rounded-full text-sm font-medium">
+                  <i class="fas fa-graduation-cap mr-2"></i>MSc Warwick Business School
+                </div>
+                <div class="bg-muted px-6 py-3 rounded-full text-sm font-medium">
+                  <i class="fas fa-users mr-2"></i>45K+ Daily Active Users
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="bg-gradient-to-br from-primary/20 to-blue-500/20 rounded-3xl p-8 backdrop-blur-sm">
+                <div class="space-y-6">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                      <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold">AI/ML Product Strategy</h3>
+                      <p class="text-sm text-muted-foreground">Neural Networks & Ensemble Methods</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold">Regulatory Intelligence</h3>
+                      <p class="text-sm text-muted-foreground">GDPR & ESG Compliance</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
+                      <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold">Market Analysis</h3>
+                      <p class="text-sm text-muted-foreground">20% Market Share in 12 Months</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Philosophy Section -->
+      <section id="philosophy" class="py-16 bg-muted section-reveal">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6">AI Product Management Philosophy</h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Systematic risk analysis, human-centered design, and data-driven decision making form the foundation of ethical AI development.
+            </p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-card rounded-xl p-8 card-hover border border-border">
+              <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-search text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Ethical AI Development</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                Proactive bias detection methodology that identifies edge cases in ML-powered segmentation models through custom evaluation frameworks.
+              </p>
+            </div>
+            
+            <div class="bg-card rounded-xl p-8 card-hover border border-border">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-users text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Human-Centered AI</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                Deep problem excavation through 150+ structured user interviews to uncover systemic inefficiencies users have learned to work around.
+              </p>
+            </div>
+            
+            <div class="bg-card rounded-xl p-8 card-hover border border-border">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-chart-bar text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Data-Driven Decisions</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                DAMA-DMBOK frameworks enable systematic hypothesis testing with controlled experiments using A/B testing to validate assumptions.
+              </p>
+            </div>
+            
+            <div class="bg-card rounded-xl p-8 card-hover border border-border">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-balance-scale text-white text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Regulatory Intelligence</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed">
+                Treating compliance as competitive intelligence to architect AI systems that anticipate regulatory evolution signals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Competencies Section -->
+      <section id="competencies" class="py-16 section-reveal">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6">Core Competencies & Skills</h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Technical problem-solving meets strategic product thinking in the complex landscape of UK market navigation.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Technical Problem-Solving -->
+            <div class="space-y-8">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-primary to-blue-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <i class="fas fa-cogs text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Technical Problem-Solving</h3>
+              </div>
+              
+              <div class="space-y-6">
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-primary">AI/ML Technologies</h4>
+                  <p class="text-sm text-muted-foreground">
+                    Neural Networks, ensemble methods (Bagging, Boosting), NLP models with 25% accuracy improvement through targeted data augmentation.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-primary">Data Strategy</h4>
+                  <p class="text-sm text-muted-foreground">
+                    DAMA-DMBOK frameworks with MS Fabric, custom ML feature dependency tracking preventing cascade failures.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-primary">AI Platforms</h4>
+                  <p class="text-sm text-muted-foreground">
+                    Azure AI with AI-900 certification, hybrid cloud architectures reducing infrastructure costs by 30%.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Strategic Product Thinking -->
+            <div class="space-y-8">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <i class="fas fa-lightbulb text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Strategic Product Thinking</h3>
+              </div>
+              
+              <div class="space-y-6">
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-green-500">AI Product Strategy</h4>
+                  <p class="text-sm text-muted-foreground">
+                    TOGAF Enterprise Architecture approach enabling seamless integration with 50+ B2B client systems.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-green-500">Stakeholder Alignment</h4>
+                  <p class="text-sm text-muted-foreground">
+                    Consensus-building framework resolving conflicts among 25+ public-private stakeholders through transparent decision matrices.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-green-500">Market Research</h4>
+                  <p class="text-sm text-muted-foreground">
+                    Competitive analysis identifying strategic blindspots, achieving 25% faster time-to-market advantage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- UK Market Navigation -->
+            <div class="space-y-8">
+              <div class="text-center">
+                <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                  <i class="fas fa-globe-europe text-white text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">UK Market Navigation</h3>
+              </div>
+              
+              <div class="space-y-6">
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-purple-500">Regulatory Intelligence</h4>
+                  <p class="text-sm text-muted-foreground">
+                    GDPR-compliant AI architecture with consent-layered systems anticipating regulatory evolution.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-purple-500">Industry Patterns</h4>
+                  <p class="text-sm text-muted-foreground">
+                    20% RegTech market share in 12 months by positioning AI as strategic risk management tool.
+                  </p>
+                </div>
+                <div class="bg-card rounded-xl p-6 border border-border">
+                  <h4 class="font-semibold mb-2 text-purple-500">Market Positioning</h4>
+                  <p class="text-sm text-muted-foreground">
+                    Deep analytical understanding of UK regulatory evolution for proactive compliance strategies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies Section -->
+      <section id="case-studies" class="py-16 bg-muted section-reveal">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6">Featured AI Product Case Studies</h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Systematic problem diagnosis and AI-powered solutions delivering measurable business impact across regulatory, government, and B2B domains.
+            </p>
+          </div>
+
+          <div class="grid gap-12">
+            <!-- Case Study 1 -->
+            <div class="bg-card rounded-xl p-8 lg:p-12 card-hover border border-border overflow-hidden">
+              <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                  <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    RegTech Platform
+                  </div>
+                  <h3 class="text-3xl font-bold">ML-Powered Compliance Automation</h3>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Diagnosed information asymmetry affecting 45K+ daily active users across 50+ B2B clients. Implemented AI-powered intelligent routing system that addressed both information fragmentation and scaling challenges.
+                  </p>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-primary">40%</div>
+                      <div class="text-sm text-muted-foreground">Delivery Improvement</div>
+                    </div>
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-green-500">185K+</div>
+                      <div class="text-sm text-muted-foreground">MAU Growth</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-gradient-to-br from-primary/10 to-blue-500/10 rounded-2xl p-8">
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-primary rounded-full"></div>
+                      <span class="text-sm">ML Segmentation Models</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <span class="text-sm">Automated Insight Generation</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span class="text-sm">Compliance Confidence Building</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <span class="text-sm">Stakeholder-Specific Interfaces</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="bg-card rounded-xl p-8 lg:p-12 card-hover border border-border overflow-hidden">
+              <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl p-8">
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span class="text-sm">DAMA-DMBOK Frameworks</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                      <span class="text-sm">AI/ML Analytics System</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-teal-500 rounded-full"></div>
+                      <span class="text-sm">Cross-Department Translation</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                      <span class="text-sm">Unified ESG Metrics</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-6">
+                  <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+                    <i class="fas fa-building mr-2"></i>
+                    Government ESG Platform
+                  </div>
+                  <h3 class="text-3xl font-bold">Data Integration Platform</h3>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Resolved coordination failure across 12 urban planning initiatives affecting 2M+ citizen records. Designed AI system translating between departmental contexts while preserving operational autonomy.
+                  </p>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-green-500">25+</div>
+                      <div class="text-sm text-muted-foreground">Stakeholder Consensus</div>
+                    </div>
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-emerald-500">5M+</div>
+                      <div class="text-sm text-muted-foreground">Records Compliance</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="bg-card rounded-xl p-8 lg:p-12 card-hover border border-border overflow-hidden">
+              <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                  <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    B2B Validation Engine
+                  </div>
+                  <h3 class="text-3xl font-bold">Digital Product Validation</h3>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Addressed validation methodology inadequacy for 50 B2B digital products. Implemented ML models analyzing customer interview patterns to identify hidden user need clusters and improve market validation accuracy.
+                  </p>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-purple-500">30%+</div>
+                      <div class="text-sm text-muted-foreground">User Engagement</div>
+                    </div>
+                    <div class="text-center p-4 bg-muted rounded-xl">
+                      <div class="text-2xl font-bold text-pink-500">50</div>
+                      <div class="text-sm text-muted-foreground">B2B Products</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-8">
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <span class="text-sm">Semantic Analysis Models</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                      <span class="text-sm">Pattern Recognition</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-violet-500 rounded-full"></div>
+                      <span class="text-sm">Statistical Controls</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-fuchsia-500 rounded-full"></div>
+                      <span class="text-sm">Validation Playbooks</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section id="process" class="py-16 section-reveal">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6">AI Product Development Process</h2>
+            <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Systematic approach from problem archaeology to scalable solution delivery, emphasizing deep user understanding and technical feasibility.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-card rounded-xl p-8 text-center card-hover border border-border h-full flex flex-col">
+              <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span class="text-white font-bold text-xl">1</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Discovery Phase</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed flex-1">
+                Problem archaeology through 150+ user interviews to uncover systemic inefficiencies users have learned to work around.
+              </p>
+            </div>
+
+            <div class="bg-card rounded-xl p-8 text-center card-hover border border-border h-full flex flex-col">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span class="text-white font-bold text-xl">2</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Technical Feasibility</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed flex-1">
+                Systematic evaluation of AI/ML technical constraints and architectural requirements for scalable implementation.
+              </p>
+            </div>
+
+            <div class="bg-card rounded-xl p-8 text-center card-hover border border-border h-full flex flex-col">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span class="text-white font-bold text-xl">3</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Strategic Design</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed flex-1">
+                Solution architecture balancing technical complexity with long-term adaptability and regulatory compliance.
+              </p>
+            </div>
+
+            <div class="bg-card rounded-xl p-8 text-center card-hover border border-border h-full flex flex-col">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                <span class="text-white font-bold text-xl">4</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Scalable Delivery</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed flex-1">
+                Systematic validation and deployment with measurable impact metrics and continuous optimization frameworks.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-16 section-reveal">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+          <div class="space-y-8">
+            <h2 class="text-4xl font-bold">Let's Build the Future of AI Products</h2>
+            <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Ready to transform complex organizational challenges into systematic AI solutions? Let's discuss how strategic product management can drive your next breakthrough.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <a 
+                href="mailto:lakshya@example.com" 
+                class="inline-flex items-center space-x-3 bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-500/90 text-white px-8 py-4 rounded-full font-medium transition-all"
+              >
+                <i class="fas fa-envelope"></i>
+                <span>Get in Touch</span>
+              </a>
+              <a 
+                href="https://linkedin.com/in/lakshya-tangri" 
+                class="inline-flex items-center space-x-3 border border-border hover:bg-accent px-8 py-4 rounded-full font-medium transition-all"
+              >
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+              <div class="bg-card rounded-xl p-8 text-center card-hover border border-border">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Location</h3>
+                <p class="text-muted-foreground text-sm">London, UK (N7 9GS)</p>
+              </div>
+              <div class="bg-card rounded-xl p-8 text-center card-hover border border-border">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-graduation-cap text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Education</h3>
+                <p class="text-muted-foreground text-sm">MSc Management of Information Systems<br/>Warwick Business School</p>
+              </div>
+              <div class="bg-card rounded-xl p-8 text-center card-hover border border-border">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-certificate text-white text-xl"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Certification</h3>
+                <p class="text-muted-foreground text-sm">Azure AI-900<br/>Microsoft Certified</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-12 bg-muted border-t border-border">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="text-center md:text-left">
+              <div class="font-bold text-xl gradient-text mb-2">Lakshya Tangri</div>
+              <p class="text-muted-foreground text-sm">AI Product Manager | Strategic Problem-Solver | UK Market Expert</p>
+            </div>
+            <div class="flex space-x-6">
+              <a href="https://linkedin.com/in/lakshya-tangri" class="text-muted-foreground hover:text-primary transition-colors">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="https://github.com/lakshya-tangri" class="text-muted-foreground hover:text-primary transition-colors">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a href="mailto:lakshya@example.com" class="text-muted-foreground hover:text-primary transition-colors">
+                <i class="fas fa-envelope text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-border text-center">
+            <p class="text-muted-foreground text-sm">
+              © 2024 Lakshya Tangri. Designed with systematic thinking and strategic innovation.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      const htmlElement = document.documentElement;
+      
+      // Check for saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      htmlElement.classList.toggle('dark', savedTheme === 'dark');
+      themeIcon.className = savedTheme === 'dark' ? 'fas fa-sun h-4 w-4' : 'fas fa-moon h-4 w-4';
+      
+      themeToggle.addEventListener('click', () => {
+        const isDark = htmlElement.classList.toggle('dark');
+        const theme = isDark ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+        themeIcon.className = isDark ? 'fas fa-sun h-4 w-4' : 'fas fa-moon h-4 w-4';
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Section reveal animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll('.section-reveal').forEach(section => {
+        observer.observe(section);
+      });
+
+      // Scroll progress indicator
+      const updateScrollProgress = () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        
+        let progressBar = document.getElementById('scroll-progress');
+        if (!progressBar) {
+          progressBar = document.createElement('div');
+          progressBar.id = 'scroll-progress';
+          progressBar.className = 'progress-bar';
+          progressBar.style.width = '0%';
+          document.body.appendChild(progressBar);
+        }
+        progressBar.style.width = scrollPercent + '%';
+      };
+
+      const handleScroll = () => {
+        updateScrollProgress();
+        
+        // Add parallax effect to hero section
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('#introduction');
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      
+      // Reveal first section immediately
+      const firstSection = document.querySelector('.section-reveal');
+      if (firstSection) {
+        firstSection.classList.add('revealed');
+      }
+    </script>
+  </body>
+</html>
