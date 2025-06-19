@@ -83,17 +83,18 @@
     </script>
     <style>
       :root {
+        /* Light Mode Colors */
         --background: 0 0% 100%; /* White */
-        --foreground: 222 84% 5%; /* Darker Blue-Gray */
-        --muted: 210 40% 98%; /* Light Gray */
-        --muted-foreground: 215 16% 47%; /* Medium Gray */
-        --popover: 0 0% 100%; /* White */
-        --popover-foreground: 222 84% 5%; /* Darker Blue-Gray */
-        --card: 0 0% 100%; /* White */
-        --card-foreground: 222 84% 5%; /* Darker Blue-Gray */
-        --border: 214 32% 91%; /* Light Border Gray */
-        --input: 214 32% 91%; /* Light Input Gray */
-        --primary: 238 79% 58%; /* Your existing Primary Blue */
+        --foreground: 222 84% 5%; /* Darker Blue-Gray for text */
+        --muted: 210 40% 98%; /* Light Gray for muted backgrounds */
+        --muted-foreground: 215 16% 47%; /* Medium Gray for muted text */
+        --popover: 0 0% 100%; /* White for popovers */
+        --popover-foreground: 222 84% 5%; /* Dark text for popovers */
+        --card: 0 0% 100%; /* White for cards */
+        --card-foreground: 222 84% 5%; /* Dark text for cards */
+        --border: 214 32% 91%; /* Light border gray */
+        --input: 214 32% 91%; /* Light input background */
+        --primary: 238 79% 58%; /* Primary blue */
         --primary-foreground: 210 40% 98%; /* Light text on primary */
         --secondary: 210 40% 96%; /* Slightly darker muted for secondary */
         --secondary-foreground: 222 84% 5%; /* Darker text on secondary */
@@ -106,25 +107,26 @@
       }
 
       .dark {
-        --background: 222 84% 5%; /* Dark background */
-        --foreground: 210 40% 98%; /* Light text */
-        --muted: 217 33% 17%; /* Darker muted background */
-        --muted-foreground: 215 16% 70%; /* Lighter muted foreground */
-        --popover: 222 84% 5%; /* Dark popover background */
+        /* Dark Mode Colors */
+        --background: 220 18% 10%; /* Very dark almost black */
+        --foreground: 210 40% 98%; /* Off-white for general text */
+        --muted: 220 18% 15%; /* Slightly lighter dark for muted backgrounds */
+        --muted-foreground: 215 16% 75%; /* Lighter gray for muted text in dark mode */
+        --popover: 220 18% 10%; /* Dark popover background */
         --popover-foreground: 210 40% 98%; /* Light popover foreground */
-        --card: 222 84% 5%; /* Dark card background */
+        --card: 220 18% 12%; /* Dark card background */
         --card-foreground: 210 40% 98%; /* Light card foreground */
-        --border: 217 33% 17%; /* Darker border */
-        --input: 217 33% 17%; /* Darker input background */
-        --primary: 238 79% 58%; /* Keep primary color same for consistency */
+        --border: 220 18% 25%; /* Darker, slightly visible border */
+        --input: 220 18% 15%; /* Darker input background */
+        --primary: 238 79% 58%; /* Keep primary color consistent */
         --primary-foreground: 210 40% 98%; /* Light text on primary */
-        --secondary: 217 33% 17%; /* Darker secondary background */
+        --secondary: 220 18% 15%; /* Darker secondary background */
         --secondary-foreground: 210 40% 98%; /* Light text on secondary */
-        --accent: 217 33% 17%; /* Darker accent background */
+        --accent: 220 18% 15%; /* Darker accent background */
         --accent-foreground: 210 40% 98%; /* Light text on accent */
-        --destructive: 0 72% 51%; /* Keep destructive color same */
+        --destructive: 0 72% 51%; /* Keep destructive color consistent */
         --destructive-foreground: 210 40% 98%; /* Light text on destructive */
-        --ring: 238 79% 58%; /* Keep ring color same */
+        --ring: 238 79% 58%; /* Keep ring color consistent */
       }
 
       html {
@@ -139,6 +141,9 @@
           "Segoe UI",
           "Roboto",
           sans-serif;
+        /* Ensure body also uses the background variable */
+        background-color: hsl(var(--background)); 
+        color: hsl(var(--foreground));
       }
 
       .gradient-text {
@@ -159,6 +164,7 @@
         transform: translateY(0);
       }
 
+      /* This transition applies to elements that use dark-mode-transition class */
       .dark-mode-transition {
         transition:
           background-color 0.3s ease,
@@ -314,7 +320,7 @@
                       <div>
                         <h3 class="font-semibold">Key Achievement</h3>
                         <p class="text-sm text-muted-foreground">
-                          Gubernatorial Commendation (Awarded by Governor)
+                          Gubernatorial Commendation (Awarded by the Governor)
                         </p>
                       </div>
                     </div>
@@ -1584,21 +1590,16 @@
                 <strong>Project Focus:</strong> A hands-on project involving the setup and optimization of a 7 GPU cryptocurrency mining rig.
               </p>
               <div class="space-y-2 mb-4">
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span class="text-sm">Hardware Optimization</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-red-500 rounded-full"></div>
-                  <span class="text-sm">Cryptocurrency Mining</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                  <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
-                  <span class="text-sm">System Performance Tuning</span>
-                </div>
+                <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <span class="text-sm">Hardware Optimization</span>
               </div>
-              <div class="text-sm text-muted-foreground">
-                <strong>Impact:</strong> Demonstrates practical skills in system assembly, performance tuning, and understanding of blockchain economics.
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                <span class="text-sm">Cryptocurrency Mining</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-pink-500 rounded-full"></div>
+                <span class="text-sm">System Performance Tuning</span>
               </div>
             </div>
 
